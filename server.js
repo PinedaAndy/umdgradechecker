@@ -5,14 +5,17 @@ import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 
+
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -23,7 +26,7 @@ app.use((req, res, next) => {
 app.route('/api')
   .get(async (req, res) => {
     console.log('GET request detected');
-    const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
+    const data = await fetch('https://api.planetterp.com/v1/professors?reviews=true&limit=1');
     const json = await data.json();
     console.log('data from fetch', json);
     res.json(json);
@@ -32,9 +35,15 @@ app.route('/api')
     console.log('POST request detected');
     console.log('Form data in res.body', req.body);
 
-    const data = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
+
+    // Used to get the Data From the Website 
+    const course = req.body[0]['value'].toString();
+    console.log(course)
+
+    //Fetch the course data 
+    const data = await fetch('https://api.planetterp.com/v1/grades?course='+course);
     const json = await data.json();
-    console.log('data from fetch', json);
+    //console.log('data from fetch', json);
     res.json(json);
   });
 

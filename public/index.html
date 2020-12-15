@@ -1,34 +1,141 @@
-<html lang="en">
-    <head>
-        <title>Labs Index</title>
-        <link rel="stylesheet" href="base_style.css">
-    </head>
-    <body>
-        <h1>Setup Instructions</h1>
-        <ol>
-            <li><a href="setup_instructions.html">Lab Setup 1</a></li>
-            <li><a href="cypress_instructions.html">Cypress instructions</a></li>
-        </ol>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UMD Grades</title>
 
-        <h2>Labs List</h2>
-        <ol>
-            <li><a href="lab_1">Lab 1</a></li>
-            <li><a href="lab_2">Lab 2</a></li>
-            <li><a href="lab_3">Lab 3</a></li>
-            <li><a href="lab_4">Lab 4</a></li>
-            <li><a href="lab_5">Lab 5</a></li>
-            <li><a href="lab_6">Lab 6</a></li>
-            <li><a href="lab_7">Lab 7</a></li>
-            <li><a href="lab_8">Lab 8</a></li>
-            <li><a href="lab_9">Lab 9</a></li>
-            <li><a href="lab_10">Lab 10</a></li>
-            <li><a href="asst-1">Assignment 1</a></li>
-            <li><a href="asst-2">Assignment 2</a></li>
-        </ol>
-        <h2>Assignments List</h2>
-        <ol>
-            <li>Pairs - HTML/CSS</li>
-            <li>Pairs/Small Groups - Using JS To Communicate Between Page Elements</li>
-        </ol>
-    </body>
+
+	<!--Style Sheets -->
+	<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+	<link href='stylesheet.css' type='text/css' rel='stylesheet' />
+
+
+	<!-- Bulma -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+    
+
+    <!-- Background -->
+    <section class="hero is-fullheight">
+
+        <!-- Header --> 
+        <div class="hero-head center">
+            <div class="columns is-mobile is-marginless heading has-text-weight-bold " style="width: 768px;">
+
+                <div class="column left">
+                    <p class="navbar-item has-text-white center">University of Maryland Course Grade Checker</p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Page Results -->
+        <main class="hero-foot center">
+            <div class="table-container is-fullwidth" id="main_table">
+                <table class="table table-striped">
+
+                    <!--Header Names -->
+                    <tr class="bg-info">
+                        <th>Year</th>
+                        <th>Professer</th>
+                        <th>Course</th>
+                        <th>Section</th>
+                        <th>A+</th>
+                        <th>A</th>
+                        <th>A-</th>
+                        <th>B+</th>
+                        <th>B</th>
+                        <th>B-</th>
+                        <th>C+</th>
+                        <th>C</th>
+                        <th>C-</th>
+                        <th>D+</th>
+                        <th>D</th>
+                        <th>D-</th>
+                        <th>F</th>
+                        <th>Other</th>
+                        <th>W</th>
+                    </tr>
+
+                    <tbody id="myTable">
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </main>
+
+
+
+
+        <main class="hero-foot center">
+            <div class="content is-large notification is-primary" id="introMessage" style="width: 768px;">
+                        <p>
+                            Welcome to UMD course grade checker. By entering a course below you can 
+                            see the average GPA per professer and course.  
+
+                            Enter a course as "INST377" and then press enter
+                        </p>
+            </div>
+        </main>
+
+
+
+
+        <!-- ENTRY FORM -->
+        <main class="hero-foot center">
+                <div id="grid" class='field' style="width: 768px;">
+                    <div class="control">
+
+                    
+                        <!--Submit Button-->
+                        <form class='center' action="/api" method="post">
+                            <!-- Course Name Input Field -->
+                            <input class="input is-large" type="text" name='course_name' placeholder="Enter Course Name">
+                        
+                            <button id="submitcourse" type="submit" class="button is-primary is-rounded" name="submitButton">Enter</button>
+                        </form>
+
+                    </div>
+                </div>
+
+        </main>
+
+
+
+
+
+
+
+       
+
+
+
+    </section>
+
+
+
+    
+
+
+    
+
+   
+<!-- Javascript -->
+<script src="canvasjs.min.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
